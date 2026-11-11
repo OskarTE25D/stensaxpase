@@ -1,25 +1,25 @@
 from spelafunktion import spela
 
-#2 skapa nödvändiga variabler som score, score ska vara en lista
+#1 skapa nödvändiga variabler som score, score ska vara en lista
 score=[0,0]
 
 print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 
 
-#3 nedan fortsätts 'main menu', vi ska ha en input som frågar spelaren om hen vill spela (ja/nej, j/n)
+#2 nedan fortsätts 'main menu', vi ska ha en input som frågar spelaren om hen vill spela (ja/nej, j/n)
 
 
-#4 användaren ska mata in ett användarnamn och köra mot en bot som heter the final chud
+#3 användaren ska mata in ett användarnamn och köra mot en bot som heter the final chud
 
 
-#5 fråga spelaren hur många omgångar hen vill köra
+#4 fråga spelaren hur många omgångar hen vill köra
 
 
-#6 theos funktion spela() anropas 
+#5 theos funktion spela() anropas 
 
 
-#7 fråga spelaren om de vill köra igen (ja/nej, j/n)
+#6 fråga spelaren om de vill köra igen (ja/nej, j/n)
 
 
-#8 om svar nej säg hejdå och delete C:system32
+#7 om svar nej säg hejdå och delete C:system32
 
