@@ -11,7 +11,7 @@ print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 
 
 #3 användaren ska mata in ett användarnamn och köra mot en bot som heter the final chud
-namn=input("ange spelarnamn --> ")
+namn=input("Ange spelarnamn --> ")
 
 
 #4 fråga spelaren hur många omgångar hen vill köra. 
@@ -21,21 +21,21 @@ while True:     #loop som innehåller spelet
     #--------------inmatningssäkerhet för antal_rundor:
     while True:     
         try:
-            antal_rundor=int(input("ange antal rundor som ska köras --> "))
+            antal_rundor=int(input("Ange antal rundor som ska köras --> "))
             break
         except ValueError:
             continue        
     #-------------slut på inmatningssäkerhet
     for runda in range(antal_rundor):
-        print(f"omgång {runda+1}") #"+1" eftersom runda börjar på noll
+        print(f"Omgång {runda+1}:") #"+1" eftersom runda börjar på noll
         #OBS!! formatera senare
         score=spela(score)
 
 
     #6 fråga spelaren om de vill köra igen (ja/nej, j/n)
-    rematch_svar=input("kör igen? (j/n)")
+    rematch_svar=input("Kör igen? (j/n)")
     if rematch_svar == "n":
-        print("hejdå")
+        print("Hejdå!")
         break
     elif rematch_svar == "j":
         continue

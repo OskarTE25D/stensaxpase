@@ -3,15 +3,15 @@ def spela(score,):
     import random
     weakness_dict = {"sten":"påse", "påse":"sax", "sax":"sten" } #returnarar det 'vapen' som slår 'input-vapnet'
     bot_vapen = random.choice(["sten","sax","påse"])
-    användare_vapen = input("ange ditt val av 'sten', 'sax', eller 'påse' --> ")
-    print(f"användare val: {användare_vapen}, bot val: {bot_vapen}")
+    användare_vapen = input("Ange ditt val av 'sten', 'sax', eller 'påse' --> ")
+    print(f"Användarens val: {användare_vapen}, Bottens val: {bot_vapen}")
     if användare_vapen == bot_vapen:
-        print("lika")
+        print("Lika")
     elif weakness_dict[användare_vapen] == bot_vapen:
-        print("bot vann")
+        print("Botten vann!")
         score[1] += 1   #ändra score så bot ökar med ett
     else:
-        print("användare vann")
+        print("Användaren vann!")
         score[0] += 1   #ändra score så användare ökar med ett
     return score
 #---------------------------------------------------------------------------------------------------------------
