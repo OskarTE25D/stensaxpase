@@ -3,7 +3,7 @@ def spela(score,):
     import random
     weakness_dict = {"sten":"påse", "påse":"sax", "sax":"sten" } #returnarar det 'vapen' som slår 'input-vapnet'
     bot_vapen = random.choice(["sten","sax","påse"])
-    användare_vapen = input("ange ditt val av 'sten', 'sax', eller 'påse' ==> ")
+    användare_vapen = input("ange ditt val av 'sten', 'sax', eller 'påse' --> ")
     print(f"användare val: {användare_vapen}, bot val: {bot_vapen}")
     if användare_vapen == bot_vapen:
         print("lika")
