@@ -15,8 +15,8 @@ def spela(score,):
         score[0] += 1   #ändra score så användare ökar med ett
     return score
 #---------------------------------------------------------------------------------------------------------------
-
-#exempel på användning
-score = [0,0] # format för poängvariabeln,[user_score, bot_score]
+'''
+exempel på användning:
+score = [0,0]         # format för poängvariabeln,[user_score, bot_score]
 score = spela(score)  #<--skiten ni ska skriva för att använda funktionen, variabelnamn kan ändras
-print(score)
+'''

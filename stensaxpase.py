@@ -1,11 +1,9 @@
-#1 from spelafunktion import spela
+from spelafunktion import spela
 
 #2 skapa nödvändiga variabler som score, score ska vara en lista
+score=[0,0]
 
-
-print(f'''Välkommen till sten, sax och påse!
-{"="*35}
-''')
+print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 
 
 #3 nedan fortsätts 'main menu', vi ska ha en input som frågar spelaren om hen vill spela (ja/nej, j/n)
