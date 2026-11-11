@@ -1,4 +1,5 @@
 # from spelafunktion import spela
 
-print(f"")
-
+print(f'''Välkommen till sten, sax och påse!
+{"="*35}
+''')
