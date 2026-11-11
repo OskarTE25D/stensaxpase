@@ -17,9 +17,15 @@ namn=input("ange spelarnamn --> ")
 #4 fråga spelaren hur många omgångar hen vill köra. 
 #här bör en while-True loop skapas som breakas om man inte vill köra längre, och därmed avslutar spelet.
 
-while True:
-    antal_rundor=int(input("ange antal rundor som ska köras --> "))
-
+while True:     #loop som innehåller spelet
+    #--------------inmatningssäkerhet för antal_rundor:
+    while True:     
+        try:
+            antal_rundor=int(input("ange antal rundor som ska köras --> "))
+            break
+        except ValueError:
+            continue        
+    #-------------slut på inmatningssäkerhet
     for runda in range(antal_rundor):
         print(f"omgång {runda+1}") #"+1" eftersom runda börjar på noll
         #OBS!! formatera senare
