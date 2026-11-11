@@ -16,13 +16,23 @@ namn=input("ange spelarnamn --> ")
 
 #4 fråga spelaren hur många omgångar hen vill köra. 
 #här bör en while-True loop skapas som breakas om man inte vill köra längre, och därmed avslutar spelet.
-antal_rundor=("ange antal rundor som ska köras --> ")
 
-#5 theos funktion spela() anropas 
+while True:
+    antal_rundor=int(input("ange antal rundor som ska köras --> "))
+
+    for runda in range(antal_rundor):
+        print(f"omgång {runda+1}") #"+1" eftersom runda börjar på noll
+        #OBS!! formatera senare
+        score=spela(score)
 
 
-#6 fråga spelaren om de vill köra igen (ja/nej, j/n)
-
+    #6 fråga spelaren om de vill köra igen (ja/nej, j/n)
+    rematch_svar=input("kör igen? (j/n)")
+    if rematch_svar == "n":
+        print("hejdå")
+        break
+    elif rematch_svar == "j":
+        continue
 
 #7 om svar nej säg hejdå(breaka loopen) och delete C:system32
 
