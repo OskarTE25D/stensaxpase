@@ -37,19 +37,11 @@ while True:     #loop som innehåller spelet
         #OBS!! formatera senare
         score=spela(score)
 
-
-    #6 resultat och fråga spelaren om de vill köra igen (ja/nej, j/n)
-   # if score[0] > score[1]:
-   #     winner_points = score[0]   #användaren vinner
-    #    loser_points = score[1]
-
     if score[0] < score[1]:
         score = score[::-1]   #botten vinner
         winner="bot"
         loser=namn
-        
-    #else:
-   #     score[0] = winner_points    #bara för att ha användarens poäng först
+
     print(f'''{'='*10} RESULTAT {'='*10}
 {winner:>6} : {score[0]} poäng
 {loser:>6} : {score[1]} poäng
