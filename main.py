@@ -4,10 +4,11 @@ from spelafunktion import spela
 score=[0,0]         #score är variabeln som innehåller både användarens och datorns poäng, index 0 (vänstra) är spelaren, index 1 (högra) är datorn
 #användarens poäng ges av "score[0]", datorns ges av "score[1]"
 
-                  #ändrar denna till användaren ifall det behövs
-loser = "Bot"    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+winner = "Botten"   #ändrar denna till användaren ifall det behövs
+loser = "Botten"    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+winner_points = 0   #poäng för att avgöra vem som vann
+loser_points = 0    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 
@@ -18,7 +19,7 @@ print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 #3 användaren ska mata in ett användarnamn och köra mot en bot som heter the final chud
 namn = input("Ange spelarnamn --> ")
 print(f"Hej, {namn}!")
-winner=namn
+
 
 #4 fråga spelaren hur många omgångar hen vill köra. 
 #här bör en while-True loop skapas som breakas om man inte vill köra längre, och därmed avslutar spelet.
@@ -37,23 +38,37 @@ while True:     #loop som innehåller spelet
         #OBS!! formatera senare
         score=spela(score)
 
-    if score[0] < score[1]:
-        score = score[::-1]   #botten vinner
-        winner="bot"
-        loser=namn
 
+    #6 resultat och fråga spelaren om de vill köra igen (ja/nej, j/n)
+    if score[0] > score[1]:
+        winner_points = score[0]   #användaren vinner
+        loser_points = score[1]
+        winner = namn
+    elif score[0] < score[1]:
+        winner_points = score[1]   #botten vinner
+        loser_points = score[0]
+        loser = namn
+    else:
+        score[0] = winner_points    #bara för att ha användarens poäng först
     print(f'''{'='*10} RESULTAT {'='*10}
-{winner:>6} : {score[0]} poäng
-{loser:>6} : {score[1]} poäng
+{winner:>6} : {winner_points} poäng
+{loser:>6} : {loser_points} poäng
     
 Vinnaren är {winner}!
 ''')
-    rematch_svar=input("Kör igen? (j/n) -->")
+    
+
+    while True:
+        rematch_svar=input("Kör igen? (j/n) -->")
+        if rematch_svar in ("j", "n"):
+            break
+        else:
+            print("Ogiltig inmatning")
     if rematch_svar == "n":
-        print("Hejdå!")
+        print("Tråkmåns")
         break
-    elif rematch_svar == "j":
-        continue
+    
+
 
 #7 om svar nej säg hejdå(breaka loopen) och delete C:system32
 
