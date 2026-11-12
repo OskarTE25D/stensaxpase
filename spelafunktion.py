@@ -5,7 +5,7 @@ def spela(score,):
     bot_vapen = random.choice(["sten","sax","påse"])
     #felsäkerhet---------------------------------------------------------------------------
     while True:
-        användare_vapen = input("Ange ditt val av 'sten', 'sax', eller 'påse' --> ")
+        användare_vapen = "".join(input("Ange ditt val av 'sten', 'påse', eller 'sax' --> ").lower().split())
         if not användare_vapen.isalpha() or användare_vapen.lower() not in ["sten", "sax", "påse"]:
             print("Ogiltigt val!")
             continue
