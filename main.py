@@ -1,74 +1,63 @@
 from spelafunktion import spela
 
-#1 skapa nödvändiga variabler som score, score ska vara en lista
-score=[0,0]         #score är variabeln som innehåller både användarens och datorns poäng, index 0 (vänstra) är spelaren, index 1 (högra) är datorn
-#användarens poäng ges av "score[0]", datorns ges av "score[1]"
+# skapar nödvändiga variabler som score, score ska vara en lista
+score=[0,0]         # score är variabeln som innehåller både användarens och datorns poäng, index 0 (vänstra) är spelaren, index 1 (högra) är datorn
+# användarens poäng ges av "score[0]", datorns ges av "score[1]"
 
-winner = "Botten"   #ändrar denna till användaren ifall det behövs
-loser = "Botten"    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-winner_points = 0   #poäng för att avgöra vem som vann
-loser_points = 0    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+loser = "Botten"
+
+winner_points = 0   # poäng för att avgöra vem som vann
+loser_points = 0    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 
 
-#2 nedan fortsätts 'main menu', vi ska ha en input som frågar spelaren om hen vill spela (ja/nej, j/n)
 
 
-#3 användaren ska mata in ett användarnamn och köra mot en bot som heter the final chud
+# användaren ska mata in ett användarnamn
+
 namn = input("Ange spelarnamn --> ")
 print(f"Hej, {namn}!")
+winner = namn
 
 
-#4 fråga spelaren hur många omgångar hen vill köra. 
-#här bör en while-True loop skapas som breakas om man inte vill köra längre, och därmed avslutar spelet.
+# while-True loop som breakas om man inte vill köra längre, och därmed avslutar spelet.
 
-while True:     #loop som innehåller spelet
+while True:     # loop som innehåller spelet
     #--------------inmatningssäkerhet för antal_rundor:
     while True:     
         try:
-            antal_rundor=int(input("Ange antal rundor som ska köras --> "))
+            antal_rundor=int(input("Ange antal rundor som ska köras --> ")) # frågar hur många rundom som ska köras, och sparar det som en int i variabeln antal_rundor
             break
         except ValueError:
             continue        
     #-------------slut på inmatningssäkerhet
     for runda in range(antal_rundor):
-        print(f"Omgång {runda+1}:") #"+1" eftersom runda börjar på noll
-        #OBS!! formatera senare
+        print(f"Omgång {runda+1}:") # "+1" eftersom runda börjar på noll
         score=spela(score)
 
 
-    #6 resultat och fråga spelaren om de vill köra igen (ja/nej, j/n)
-    if score[0] > score[1]:
-        winner_points = score[0]   #användaren vinner
-        loser_points = score[1]
-        winner = namn
-    elif score[0] < score[1]:
-        winner_points = score[1]   #botten vinner
-        loser_points = score[0]
-        loser = namn
-    else:
-        score[0] = winner_points    #bara för att ha användarens poäng först
+    # resultat och fråga spelaren om de vill köra igen (ja/nej, j/n)
+    if score[0] < score[1]:
+        score = score[::-1]   #botten vinner
+        winner="bot"
+        loser=namn
     print(f'''{'='*10} RESULTAT {'='*10}
-{winner:>6} : {winner_points} poäng
-{loser:>6} : {loser_points} poäng
+{winner:>6} : {score[0]} poäng
+{loser:>6} : {score[1]} poäng
     
 Vinnaren är {winner}!
 ''')
     
-
+    # frågar om spelaren vill spela igen (j/n) och har felinmatningssäkerhet
     while True:
         rematch_svar=input("Kör igen? (j/n) -->")
         if rematch_svar in ("j", "n"):
             break
         else:
-            print("Ogiltig inmatning")
+            print("Ogiltig inmatning")  # allting som inte är "j" eller "n" är ogiltigt
+
     if rematch_svar == "n":
         print("Tråkmåns")
         break
-    
-
-
-#7 om svar nej säg hejdå(breaka loopen) och delete C:system32
-
