@@ -1,14 +1,14 @@
 from spelafunktion import spela
 
 # skapar nödvändiga variabler som score, score ska vara en lista
-score=[0,0]         # score är variabeln som innehåller både användarens och datorns poäng, index 0 (vänstra) är spelaren, index 1 (högra) är datorn
+         # score är variabeln som innehåller både användarens och datorns poäng, index 0 (vänstra) är spelaren, index 1 (högra) är datorn
 # användarens poäng ges av "score[0]", datorns ges av "score[1]"
 
 
 loser = "Botten"
 
-winner_points = 0   # poäng för att avgöra vem som vann
-loser_points = 0    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   # poäng för att avgöra vem som vann
+    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 print(f"Välkommen till sten, sax och påse!\n{"="*35}")
 
@@ -25,6 +25,9 @@ winner = namn
 # while-True loop som breakas om man inte vill köra längre, och därmed avslutar spelet.
 
 while True:     # loop som innehåller spelet
+    score=[0,0]
+    winner_points = 0
+    loser_points = 0
     #--------------inmatningssäkerhet för antal_rundor:
     while True:     
         try:
@@ -46,10 +49,12 @@ while True:     # loop som innehåller spelet
     print(f'''{'='*10} RESULTAT {'='*10}
 {winner:>6} : {score[0]} poäng
 {loser:>6} : {score[1]} poäng
-    
-Vinnaren är {winner}!
-''')
-    
+    ''')
+    if score[0] == score[1]:
+        print("Det blev oavgjort!")
+    else:
+        print(f"Vinnaren är {winner}!")
+
     # frågar om spelaren vill spela igen (j/n) och har felinmatningssäkerhet
     while True:
         rematch_svar=input("Kör igen? (j/n) -->")
